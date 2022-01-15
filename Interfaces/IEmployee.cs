@@ -9,6 +9,7 @@ namespace EmployeeMananagement.Interfaces
         int ID { get; set; }
         string Ten { get; set; }
         DateTime CreateDate { get; set; }
-        string ChucVu { get; }
+        string ChucVu { get; set; }
+        
     }
 }

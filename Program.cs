@@ -1,6 +1,6 @@
-﻿using EmployeeMananagement.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using EmployeeMananagement.Services;
 
 namespace EmployeeMananagement
 {
@@ -23,7 +23,7 @@ namespace EmployeeMananagement
                 Console.WriteLine("6. Exit");
                 Console.WriteLine("----------------------------------------------------------------------------------------");
                 Console.Write("Enter Your Choice Here:-");
-                int choose_number = Convert.ToInt32(Console.ReadLine());
+                int choose_number = Int32.Parse(Console.ReadLine()); 
                 int search_Id;
 
 
@@ -57,18 +57,18 @@ namespace EmployeeMananagement
                                 var name = Console.ReadLine();
                                 cRUD.FindName(name);
                                 break;
-
                             case 3:
                                 Console.WriteLine("Enter search chuc vu");
                                 var chucvu = Console.ReadLine();
                                 cRUD.FindChucVu(chucvu);
                                 break;
-
+                            default:
+                                Console.WriteLine("No validated choice...!!!");
+                                break;
                         }
-                        Console.WriteLine("No validated choice...!!!");
                         break;
                     case 4:
-                        Console.WriteLine("Enter Employee Id Which You Want To Search:");
+                        Console.WriteLine("Enter Employee Id Which You Want To update:");
                         search_Id = Convert.ToInt32(Console.ReadLine());
 
                         if (search_Id != null)
@@ -88,7 +88,6 @@ namespace EmployeeMananagement
                         {
                             cRUD.Delete(search_Id);
                         }
-
                         else
                         {
                             Console.WriteLine("Record Not Found...!!!");
@@ -101,6 +100,8 @@ namespace EmployeeMananagement
                         Console.WriteLine("Invalid Choice....!!! Please Enter Correct Choice...!!!");
                         break;
                 }
+                
+                
                 Console.Write("Would You Like To Continue(Y/N):");
                 ans = Convert.ToChar(Console.ReadLine());
             } while (ans == 'y' || ans == 'Y');
